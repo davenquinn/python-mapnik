@@ -2,7 +2,7 @@
  *
  * This file is part of Mapnik (c++ mapping toolkit)
  *
- * Copyright (C) 2014 Artem Pavlenko, Jean-Francois Doyon
+ * Copyright (C) 2015 Artem Pavlenko, Jean-Francois Doyon
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -28,6 +28,9 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wunused-local-typedef"
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 
 #include <boost/python.hpp>
 #include <boost/noncopyable.hpp>
@@ -64,7 +67,7 @@ void export_logger()
         .def("get_object_severity", &logger::get_object_severity)
         .def("set_object_severity", &logger::set_object_severity)
         .def("clear_object_severity", &logger::clear_object_severity)
-        .def("get_format", &logger::get_format)
+        .def("get_format", &logger::get_format,return_value_policy<reference_existing_object>())
         .def("set_format", &logger::set_format)
         .def("str", &logger::str)
         .def("use_file", &logger::use_file)

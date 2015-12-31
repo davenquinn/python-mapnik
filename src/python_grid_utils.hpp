@@ -2,7 +2,7 @@
  *
  * This file is part of Mapnik (c++ mapping toolkit)
  *
- * Copyright (C) 2014 Artem Pavlenko
+ * Copyright (C) 2015 Artem Pavlenko
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -43,13 +43,6 @@ void grid2utf(T const& grid_type,
                      boost::python::list& l,
                      std::vector<typename T::lookup_type>& key_order,
                      unsigned int resolution);
-
-
-template <typename T>
-void grid2utf2(T const& grid_type,
-                      boost::python::list& l,
-                      std::vector<typename T::lookup_type>& key_order,
-                      unsigned int resolution);
 
 
 template <typename T>

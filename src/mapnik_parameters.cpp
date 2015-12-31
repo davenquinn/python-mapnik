@@ -2,7 +2,7 @@
  *
  * This file is part of Mapnik (c++ mapping toolkit)
  *
- * Copyright (C) 2014 Artem Pavlenko
+ * Copyright (C) 2015 Artem Pavlenko
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -28,6 +28,9 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wunused-local-typedef"
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 
 #include <boost/python.hpp>
 #pragma GCC diagnostic pop
@@ -162,7 +165,7 @@ mapnik::parameter get_params_by_index(mapnik::parameters const& p, int index)
     throw boost::python::error_already_set();
 }
 
-unsigned get_params_size(mapnik::parameters const& p)
+std::size_t get_params_size(mapnik::parameters const& p)
 {
     return p.size();
 }
